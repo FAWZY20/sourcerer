@@ -1,0 +1,313 @@
+<header class="container-fluid baniere">
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-primary" role="alert">
+                <p>Did you know?<span><a href="">You can add statistics from yout private repos to your
+                            profile</a></span></p>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="container-fluid reseau">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Share your profile on:</p>
+                <ul class="reseau-links">
+                    <li><a href="">Linkedin</a></li>
+                    <li><a class="reseau-link" href="">Twitter</a></li>
+                    <li><a class="reseau-link" href="">Facebook</a></li>
+                    <li><a class="reseau-link" href="">Get HTML</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row identifian">
+            <div class="col-lg-6">
+                <h1 class="name"> {{name}} </h1>
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    Craftsam at {{company}}.<br />
+                    <span> {{location}} </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid info-section">
+    <div class="container">
+        <div class="row">
+            <p class="login"> {{login}} </p>
+            <div class="col-lg-12 info-user">
+                <div class="image col-lg-2">
+                    <img class="avatar" src="{{avatarUrl}}" width="150" height="150" alt="">
+                </div>
+                <div class="info col-lg-10">
+                    <div class="w-25     info-block commits">
+                        <p class="info-block-name">Commits</p>
+                        <p class="info-block-description"> {{commit}} </p>
+                    </div>
+                    <div class="w-25     info-block repos">
+                        <p class="info-block-name">Repos</p>
+                        <p class="info-block-description"> {{repositories}} </p>
+                    </div>
+                    <div class="w-25     info-block code">
+                        <p class="info-block-name">Lines of code</p>
+                        <p class="info-block-description"> </p>
+                    </div>
+                    <div class=" w-25     info-block info-block-reseau followers">
+                        <p class="info-block-name">Followers</p>
+                        <div class="info-block-reseau-icon">
+                            <div>
+                                <p class="info-block-description"> {{follower}} </p>
+                            </div>
+                            <div>
+                                <img src="https://img.icons8.com/android/24/000000/share.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" w-25     info-block info-block-reseau following">
+                        <p class="info-block-name">Following</p>
+                        <p class="info-block-description"> {{following}} </p>
+                    </div>
+                    <div class=" w-25 info-block info-block-refresh following dropdown">
+                        <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Refresh
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="overview sct">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Overview</h2>
+                </div>
+                <div class="col-lg-6">
+                    <div>
+                        <p>{{repositories}} repos.</p>
+                    </div>
+                    <div *ngFor="let entry of repositoriesUpdate | async ">
+                        Last uptaded : {{entry.updatedAt}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container col-lg-10">
+                    <div>
+                        <canvas id="myChart" #mychart></canvas>
+                    </div>
+                    <div>
+                        <ul class="overview-list">
+                            <li class="overview-language col-lg-2">
+                                <p>Language <span class="overview-language-color"></span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="languages sct">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6">
+                    <h2>languages</h2>
+                </div>
+                <div class="col-lg-6">
+                    <div>
+                        <p>{{repositories}} repos.</p>
+                    </div>
+                    <div *ngFor="let entry of repositoriesUpdate | async ">
+                        Last uptaded : {{entry.updatedAt}}
+                    </div>
+                </div>
+            </div>
+            <div class="row component-language">
+                <div class="col-lg-5 info_language">
+                    <div class="col-lg-5 info_language_bloc" *ngFor="let language of repositoryInfoLanguage | async ">
+                        <ul class="Language-point">
+                            <li class="Language-title">
+                                <div>
+                                    <p>{{language.primaryLanguage}}</p>
+                                </div>
+                                <div class="colorLanguage">
+                                    <span>{{language.color}}</span>
+                                </div>
+                            </li>
+                            <li class="Language-commits">
+                                <div>
+                                    <p>Commits:</p>
+                                </div>
+                            </li>
+                            <li class="Language-LOC">
+                                <div>
+                                    <p>LOC:</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div>
+                        <canvas id="myCharte" #mycharte></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sct">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Repositories</h2>
+                </div>
+                <div class="col-lg-6">
+                    <div>
+                        <p>{{repositories}} repos.</p>
+                    </div>
+                    <div *ngFor="let entry of repositoriesUpdate | async ">
+                        Last uptaded : {{entry.updatedAt}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="example-container mat-elevation-z8">
+                    <mat-table #table [dataSource]="dataSource">
+                        <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="position">
+                            <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.position }} </mat-cell>
+                        </ng-container>
+
+                        <!-- repository Column -->
+                        <ng-container matColumnDef="repository">
+                            <mat-header-cell *matHeaderCellDef> Repository </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.repository }} </mat-cell>
+                        </ng-container>
+
+                        <!-- commits Column -->
+                        <ng-container matColumnDef="commits">
+                            <mat-header-cell *matHeaderCellDef> Commits </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.commits }} </mat-cell>
+                        </ng-container>
+
+                        <!-- team Column -->
+                        <ng-container matColumnDef="team">
+                            <mat-header-cell *matHeaderCellDef> Team </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.team }} </mat-cell>
+                        </ng-container>
+
+                        <!-- language Column -->
+                        <ng-container matColumnDef="language">
+                            <mat-header-cell *matHeaderCellDef> Languages </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.language }} </mat-cell>
+                        </ng-container>
+
+                        <!-- language Column -->
+                        <ng-container matColumnDef="timeline">
+                            <mat-header-cell *matHeaderCellDef> Timeline </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.timeline }} </mat-cell>
+                        </ng-container>
+
+                        <!-- Expanded Content Column - The detail row is made up of this one column -->
+                        <ng-container matColumnDef="expandedDetail">
+                            <mat-cell *matCellDef="let detail" class="bloc-info">
+                                <div>
+                                    <ul>
+                                        <li class="path_repo">
+                                            <div>
+                                                <span>💣</span>
+                                            </div>
+                                            <div>
+                                                {{repoDescription}}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li class="path_repo">
+                                            <div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                                  </svg>
+                                            </div>
+                                            <div>
+                                                {{repoPath}}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="lang_repo">
+                                    <ul *ngFor="let language of repoLanguage | async ">
+                                        <li class="list_language">
+                                            <div>
+                                                {{language.name}}
+                                            </div>
+                                            <div id="cercle" style="background: {{language.color}};">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content-avatar">
+                                    <div>
+                                        <ul *ngFor="let colab of repoColab | async ">
+                                            <li class="colab_info">
+                                                <div class="colab_info_image">
+                                                    <img class="avatar" src="{{colab.avatarUrl}}" width="100" height="100" alt="">
+                                                </div>
+                                                <div>
+                                                    {{colab.name}}
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-success">Invite all</button>
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns" matRipple class="element-row" [class.expanded]="expandedElement == row" (click)="expandedElement = row"></mat-row>
+                        <mat-row *matRowDef="
+                          let row;
+                          columns: ['expandedDetail'];
+                          when: isExpansionDetailRow
+                        " [@detailExpand]="
+                          row.element == expandedElement ? 'expanded' : 'collapsed'
+                        " style="overflow: hidden">
+                        </mat-row>
+                    </mat-table>
+                </div>
+
+                <!-- Copyright 2017 Google Inc. All Rights Reserved.
+                      Use of this source code is governed by an MIT-style license that
+                      can be found in the LICENSE file at http://angular.io/license -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <ul *ngFor="let name of repoName | async">
+    <li> {{name.name}} </li>
+</ul> -->
+
+<!-- {{repositoryPrimaryLanguage}} -->
