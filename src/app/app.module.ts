@@ -36,7 +36,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            headers: new HttpHeaders().set("authorization", 'Bearer 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'),
+            headers: new HttpHeaders().set("authorization", 'Bearer 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'),
             uri: 'https://api.github.com/graphql',
           }),
         };
